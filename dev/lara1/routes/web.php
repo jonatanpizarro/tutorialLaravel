@@ -13,11 +13,6 @@
 
 Route::get('/', 'HomeController@getHome');
 
-{
-    
-    return view('home');
-});
-
 Route::get('login', function()
 {
     return 'Login usuario';
@@ -26,32 +21,16 @@ Route::get('logout', function()
 {
     return 'Logout usuario';
 });
-Route::get('catalog', function()
-{
-    
-    return view('catalog.index');
-});
+Route::get('catalog', 'CatalogController@getIndex');
 
 
-Route::get('catalog/show/{id}', function()
-{
-    
-    return view('catalog.show', array('id'=>$id));
-});
+Route::get('catalog/show/{id}', 'CatalogController@getShow');
 
 
-Route::get('catalog/create', function()
-{
-   
-    return view('catalog.create');
-});
+Route::get('catalog/create', 'CatalogController@getCreate');
 
 
-Route::get('catalog/edit/{id}', function()
-{
-    
-    return view('catalog.edit' , array('id'=>$id));
-});
+Route::get('catalog/edit/{id}', 'CatalogController@getEdit');
 
 
 
